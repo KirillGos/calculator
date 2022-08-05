@@ -1,52 +1,41 @@
 * {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-size: 30px;
 }
 
 body {
+    background-color: aqua;
     height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+.container {
+    width: 250px;
+    border: solid 1px black;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
 button {
+    flex-shrink: 0;
     height: 50px;
     width: 50px;
-    border: none;
-    margin: 5px;
-    background-color: aqua;
-    border-radius: 15px;
-    flex-shrink: 0;
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    border: solid cyan 3px;
-    height: 500px;
-    width: 300px;
-    flex-wrap: wrap;
-    padding: 15px;
 }
 
-.operators {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.output-display {
+.display {
+    height: 50px;
     width: 100%;
-    height: 30px;
-    border: solid blue 2px;
-    display: flex;
-    align-items: center;
-}
-.output {
-    padding: 30px;
+    background-color: black;
+    margin: 5px;
+    color: white;
 }
 
-.number0 {
-    flex: 1;
+.equal {
+    width: 43%;
 }
