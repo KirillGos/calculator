@@ -1,1 +1,1 @@
-# calculator
+# This is calculator project. I've build it to practice html, css and javascript.
