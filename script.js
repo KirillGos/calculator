@@ -38,13 +38,12 @@ function operate(operator,a , b) {
     let operator = '';
     buttons.map(button => button.addEventListener('click', (e) => {
         if(e.target.className.includes('operator') && operator === '') {
-            operator += e.target.innerText;
-            
+            operator = e.target.id;
         }  else if( e.target.className.includes('operator') && secondValue !== '' && operator !== '') {
                 output.innerText = operate(operator, display, secondValue);
                 solution = output.innerText;
                 history.innerText = `${display} ${operator} ${secondValue} =`
-                operator = e.target.innerText;
+                operator = e.target.id;
                 secondValue = '';
         } 
        
@@ -117,3 +116,119 @@ dot.addEventListener('click', () => {
        }
     }
 })
+
+
+
+// keyboard support
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Backspace') {
+        output.innerText = output.innerText.slice(0, -1);
+            if(solution === '' && operator === '' && secondValue === '') {
+                display =  display.slice(0, -1);
+            }  else if( operator !== '' && secondValue !== '') {
+                secondValue = secondValue.slice(0, -1)
+            } if(solution !== '') {
+                solution = output.innerText;
+            }
+    }
+     
+});
+// document.addEventListener('keydown', (e) => {
+//    console.log(e)
+// })
+
+    document.addEventListener('keydown', (e) => {
+            if(e.key == '*' || e.key == '/' || e.key == '-' || e.key == '+') {
+                if( operator === '') {    
+                if(e.key === '-') {
+                    operator = '-';
+                } else if (e.key === '/') {
+                    operator = '÷'
+                } else if (e.key === '*') {
+                    operator = 'x';
+                } else if (e.key === '+') {
+                    operator = '+';
+                }
+                console.log(operator)
+            }  else if( secondValue !== '' && operator !== '') {
+                    output.innerText = operate(operator, display, secondValue);
+                    solution = output.innerText;
+                    history.innerText = `${display} ${operator} ${secondValue} =`
+                    if(e.key === '-') {
+                        operator = '-';
+                    } else if (e.key === '/') {
+                        operator = '÷'
+                    } else if (e.key === '*') {
+                        operator = 'x';
+                    } else if (e.key === '+') {
+                        operator = '+';
+                    }
+                    secondValue = '';
+                    console.log(output.inn)
+            } 
+      
+        }
+      
+       
+    });
+
+
+    // output
+  document.addEventListener('keydown', (e) => {
+        if(e.key === '1' || e.key === '2' || e.key === '3' || e.key === '4' || e.key === '5' || e.key === '6' ||
+        e.key === '7'|| e.key === '8' || e.key === '9' || e.key === '0') {
+          if( solution === '' && operator === '') {
+                output.innerText += e.key;
+                display = output.innerText;
+                console.log(output.innerText)
+          }
+
+         } else if(e.key === '1' || e.key === '2' || e.key === '3' || e.key === '4' || e.key === '5' || e.key === '6' ||
+        e.key === '7'|| e.key === '8' || e.key === '9' || e.key === '0') {
+                if(solution !== '') {
+                    output.innerText += e.key;
+                    display = solution;
+                }
+         }
+    });
+
+// second value
+    document.addEventListener('keydown', (e) => {
+        if (e.key === '1' || e.key === '2' || e.key === '3' || e.key === '4' || e.key === '5' || e.key === '6' ||
+        e.key === '7'|| e.key === '8' || e.key === '9' || e.key === '0') {
+             if( operator !== '' && display !== '') {
+                 output.innerText = '';
+               secondValue += e.key;
+               output.innerText += secondValue;
+            }
+        }
+    });
+        
+
+    // enter = equal
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') {
+         if(operator !== '' && secondValue !== '') {
+        output.innerText = operate(operator, display, secondValue);
+        history.innerText = `${display} ${operator} ${secondValue} =`
+          display = output.innerText;
+        console.log(e.key, secondValue, display);
+
+    } 
+    operator = '';
+    secondValue = '';
+    }
+   
+});
+// add dot
+document.addEventListener('keydown', (e) => {
+    if(!output.innerText.includes('.') && e.key === '.') {
+        output.innerText += '.'
+       if(solution === '' && operator === '') {
+         display = output.innerText;
+       } else if(operator !== '' && display !== '') {
+        secondValue = output.innerText
+       }
+    }
+});
+ 
