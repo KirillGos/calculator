@@ -9,7 +9,6 @@ clear.addEventListener('click', (e) => {
       } if(solution !== '') {
         solution = output.innerText;
       }
-    console.log(solution)
 });
 // variables 
 
@@ -17,7 +16,7 @@ const buttons = Array.from(document.querySelectorAll('button'));
 const output = document.querySelector('.display');
 // Basic math operators
 
-const add = (a, b) =>  parseInt(a) + parseInt(b);
+const add = (a, b) =>  Number(a) + Number(b);
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
@@ -40,7 +39,7 @@ function operate(operator,a , b) {
     buttons.map(button => button.addEventListener('click', (e) => {
         if(e.target.className.includes('operator') && operator === '') {
             operator += e.target.innerText;
-
+            
         }  else if( e.target.className.includes('operator') && secondValue !== '' && operator !== '') {
                 output.innerText = operate(operator, display, secondValue);
                 solution = output.innerText;
@@ -61,8 +60,8 @@ function population() {
           
          }
         else if(solution !== '' && e.target.className.includes('number')) {
-            display = solution;
             output.textContent += e.target.innerText;
+            display = solution;
         }
     }))
 }
@@ -77,7 +76,7 @@ population()
         if(e.target.className.includes('number') && operator !== '') {
                secondValue += e.target.innerText;
                output.innerText = secondValue;
-            //    console.log(secondValue)
+               
             }
         });
 
@@ -85,10 +84,13 @@ const history = document.querySelector('.history');
 const equal = document.querySelector('.equal');
 let solution = '';
 equal.addEventListener('click', (e) => {
-    if(operator !== '') {
+    if(operator !== '' && secondValue !== '') {
         output.innerText = operate(operator, display, secondValue);
         solution = output.innerText;
-        history.innerText = `${display} ${operator} ${secondValue} =`
+        if(secondValue !== '') {
+            history.innerText = `${display} ${operator} ${secondValue} =`
+        }
+        
     } 
     operator = '';
     secondValue = '';
@@ -104,3 +106,14 @@ reset.addEventListener('click', () => {
     history.innerText = '';
 });
 
+const dot = document.querySelector('#dot');
+dot.addEventListener('click', () => {
+    if(!output.innerText.includes('.')) {
+        output.innerText += '.'
+       if(solution === '' && operator === '') {
+         display = output.innerText;
+       } else if(operator !== '' && display !== '') {
+        secondValue = output.innerText
+       }
+    }
+})
