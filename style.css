@@ -29,11 +29,14 @@ button {
 }
 
 .display {
+    display: flex;
     height: 50px;
     width: 100%;
     background-color: black;
     margin: 5px;
     color: white;
+    justify-content: flex-end;
+    padding: 15px;
 }
 
 .equal {
