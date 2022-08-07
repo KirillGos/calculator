@@ -24,10 +24,10 @@ function operate(operator,a , b) {
 
     let operator = '';
     buttons.map(button => button.addEventListener('click', (e) => {
-        if(e.target.className.includes('operator')) {
+        if(e.target.className.includes('operator') && operator === '') {
             operator += e.target.innerText;
-            console.log(operator)
-        } 
+
+        }  
     }));
 
 // display
@@ -38,7 +38,8 @@ function population() {
             output.textContent += e.target.innerText;
            display = output.innerText;
           
-        } else if(solution !== '') {
+         }
+        else if(solution !== '') {
             display = solution
         }
     }))
@@ -64,7 +65,7 @@ equal.addEventListener('click', (e) => {
     if(operator !== '') {
         output.innerText = operate(operator, display, secondValue);
         solution = output.innerText;
-    }
+    } 
     operator = '';
     // display = '';
     secondValue = '';
@@ -78,5 +79,3 @@ reset.addEventListener('click', () => {
     operator = '';
     solution = '';
 });
-
-
