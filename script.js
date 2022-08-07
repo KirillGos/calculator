@@ -14,6 +14,7 @@ clear.addEventListener('click', (e) => {
 
 const buttons = Array.from(document.querySelectorAll('button'));
 const output = document.querySelector('.display');
+
 // Basic math operators
 
 const add = (a, b) =>  Number(a) + Number(b);
@@ -206,7 +207,7 @@ document.addEventListener('keydown', (e) => {
         
 
     // enter = equal
-document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', (e) => {
     if(e.key === 'Enter') {
          if(operator !== '' && secondValue !== '') {
         output.innerText = operate(operator, display, secondValue);
@@ -232,3 +233,4 @@ document.addEventListener('keydown', (e) => {
     }
 });
  
+

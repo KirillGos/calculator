@@ -54,11 +54,13 @@ button {
     font-size: 40px;
     /* padding-bottom: 35px; */
     align-items: center;
+    overflow: hidden;
 } 
 
 .history {
     margin-top: 3px;
     color: rgba(255, 255, 255, 0.75);
+    overflow: hidden;
 }
 .equal {
     width: 150px;
