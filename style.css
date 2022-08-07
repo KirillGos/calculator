@@ -17,6 +17,9 @@ body {
 .container {
     width: 450px;
     border: solid 1px black;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.75);
     display: flex;
     flex-direction: column;
     /* flex-wrap: wrap;
@@ -40,6 +43,9 @@ button {
     width: 100px;
     height: 100px;
 }
+button:hover {
+    background-color:  rgba(255, 255, 255, 1);
+}
 .a  {
     display: flex;
     height: 50px;
@@ -50,7 +56,7 @@ button {
     padding: 15px;
 }
 .display {
-    margin-bottom: 3px;
+    margin-bottom: 10   px;
     font-size: 40px;
     /* padding-bottom: 35px; */
     align-items: center;
@@ -74,5 +80,8 @@ button {
 }
 
 .reset {
+    background-color: red;
+}
+.reset:hover {
     background-color: red;
 }
