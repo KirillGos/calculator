@@ -15,30 +15,62 @@ body {
 }
 
 .container {
-    width: 250px;
+    width: 450px;
     border: solid 1px black;
     display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap;
+    justify-content: center; */
+    /* height: 100%; */
+}
+
+.buttons {
+    display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    height: 100%;
+    width: 100%;
+    align-content: center ;
+    justify-content: center
 }
-
 button {
-    flex-shrink: 0;
-    height: 50px;
-    width: 50px;
+    border-radius: 0;
+    border: solid rgba(0, 0, 0, 0.75) 0.5px;
+    background-color:  rgba(255, 255, 255, 0.75);
+    flex-grow: 1;
+    width: 100px;
+    height: 100px;
 }
-
-.display {
+.a  {
     display: flex;
     height: 50px;
-    width: 100%;
-    background-color: black;
-    margin: 5px;
+    background-color: rgba(0,0,0, 0.75);
+    margin: 0px 3px; 
     color: white;
     justify-content: flex-end;
     padding: 15px;
 }
+.display {
+    margin-bottom: 3px;
+    font-size: 40px;
+    /* padding-bottom: 35px; */
+    align-items: center;
+} 
 
+.history {
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.75);
+}
 .equal {
-    width: 43%;
+    width: 150px;
+}
+.sero {
+    width: 150px    ;
+}
+
+.operator {
+    background-color: rgba(255, 255, 255,255, 1);
+}
+
+.reset {
+    background-color: red;
 }
